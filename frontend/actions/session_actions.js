@@ -24,15 +24,17 @@ export const signup = (user) => {
   return (dispatch) => (
     //make the AJAX call
     APIUtil.signupUser(user)
-      .then((currentUser) => dispatch(receiveCurrentUser(user)))
+      .then((currentUser) => dispatch(receiveCurrentUser(currentUser)))
   );
 };
 
 export const login = (user) => {
-  return (dispatch) => (
-    APIUtil.loginUser(user)
+  return (dispatch) => {
+    return (
+      APIUtil.loginUser(user)
       .then((currentUser) => dispatch(receiveCurrentUser(currentUser)))
-  );
+    );
+  }
 };
 
 export const logout = () => {

@@ -1,7 +1,5 @@
 if current_user
-  json.set! user do
-    json.extract! user, :username, :password_digest
-  end
+  json.extract! user, :username, :password_digest, :id
 else
   {}
-end 
+end
